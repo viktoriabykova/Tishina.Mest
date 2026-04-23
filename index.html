@@ -1,154 +1,619 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Тишина.Мест — корпоративный оздоровительный туризм</title>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Тишина.Мест — корпоративные оздоровительные путешествия</title>
+<meta name="description" content="Платформа корпоративных оздоровительных путешествий для компаний: подбор, бронирование и сопровождение поездок для восстановления сотрудников." />
 <style>
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #0f172a;
-    color: #f8fafc;
+margin: 0;
+font-family: Arial, sans-serif;
+background: #0b1220;
+color: #f8fafc;
+line-height: 1.6;
 }
+
+a { text-decoration: none; color: inherit; }
 
 .container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
+width: 90%;
+max-width: 1180px;
+margin: 0 auto;
 }
 
-header {
-    padding: 80px 0;
-    text-align: center;
+.navbar {
+position: sticky;
+top: 0;
+z-index: 1000;
+backdrop-filter: blur(12px);
+background: rgba(11, 18, 32, 0.85);
+border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav-wrap {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 18px 0;
+}
+
+.logo {
+font-size: 22px;
+font-weight: 700;
+letter-spacing: 0.5px;
+color: #f8fafc;
+}
+
+.nav-links {
+display: flex;
+gap: 24px;
+flex-wrap: wrap;
+font-size: 15px;
+color: #cbd5e1;
+}
+
+.nav-links a:hover { color: #d4af37; }
+
+.hero {
+min-height: 92vh;
+display: flex;
+align-items: center;
+background:
+linear-gradient(rgba(11,18,32,0.55), rgba(11,18,32,0.85)),
+url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+}
+
+.hero-content {
+max-width: 740px;
+padding: 80px 0;
+}
+
+.eyebrow {
+color: #d4af37;
+text-transform: uppercase;
+letter-spacing: 2px;
+font-size: 13px;
+margin-bottom: 16px;
 }
 
 h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+font-size: 58px;
+line-height: 1.1;
+margin: 0 0 20px;
 }
 
-h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
+.hero p {
+font-size: 20px;
+color: #dbe4f0;
+max-width: 650px;
+margin-bottom: 32px;
 }
 
-p {
-    color: #cbd5f5;
-    line-height: 1.6;
+.btn-group {
+display: flex;
+gap: 16px;
+flex-wrap: wrap;
 }
 
 .btn {
-    background: #d4af37;
-    color: black;
-    padding: 15px 30px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-    border-radius: 8px;
+display: inline-block;
+padding: 15px 28px;
+border-radius: 12px;
+font-weight: 700;
+transition: 0.25s ease;
+cursor: pointer;
+border: none;
 }
 
-.section {
-    padding: 60px 0;
+.btn-primary {
+background: #d4af37;
+color: #111827;
 }
 
-.cards {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+.btn-primary:hover {
+transform: translateY(-2px);
+opacity: 0.95;
+}
+
+.btn-secondary {
+border: 1px solid rgba(255,255,255,0.2);
+color: #f8fafc;
+background: transparent;
+}
+
+.btn-secondary:hover {
+background: rgba(255,255,255,0.06);
+}
+
+section {
+padding: 90px 0;
+}
+
+.section-title {
+font-size: 38px;
+margin: 0 0 14px;
+}
+
+.section-subtitle {
+color: #cbd5e1;
+max-width: 780px;
+margin-bottom: 38px;
+font-size: 18px;
+}
+
+.grid {
+display: grid;
+gap: 22px;
+}
+
+.grid-3 {
+grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.grid-4 {
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .card {
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 12px;
-    flex: 1;
-    min-width: 250px;
+background: #111827;
+border: 1px solid rgba(255,255,255,0.06);
+border-radius: 18px;
+padding: 28px;
+transition: 0.3s ease;
+box-shadow: 0 10px 30px rgba(0,0,0,0.18);
 }
 
-footer {
-    text-align: center;
-    padding: 40px 0;
-    border-top: 1px solid #334155;
+.card:hover {
+transform: translateY(-6px);
+border-color: rgba(212,175,55,0.35);
 }
-</style>
 
+.card h3 {
+margin-top: 0;
+font-size: 22px;
+}
+
+.muted {
+color: #cbd5e1;
+}
+
+.stats {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+gap: 20px;
+margin-top: 18px;
+}
+
+.stat {
+background: linear-gradient(180deg, #111827, #0f172a);
+border-radius: 18px;
+padding: 26px;
+border: 1px solid rgba(255,255,255,0.06);
+text-align: center;
+}
+
+.stat strong {
+display: block;
+font-size: 34px;
+      color: #d4af37;
+      margin-bottom: 8px;
+    }
+
+    .steps .card span {
+      display: inline-block;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #d4af37;
+      color: #111827;
+      text-align: center;
+      line-height: 38px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .calculator {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .calculator-box {
+      background: #111827;
+      border-radius: 18px;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #0f172a;
+      color: #f8fafc;
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .result {
+      font-size: 24px;
+      font-weight: 700;
+      color: #d4af37;
+      margin-top: 10px;
+    }
+
+    .faq-item {
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      color: #f8fafc;
+      border: none;
+      text-align: left;
+      padding: 20px 22px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 22px 20px;
+      color: #cbd5e1;
+    }
+
+    .contact-box {
+      background: linear-gradient(180deg, #111827, #0f172a);
+      border: 1px solid rgba(212,175,55,0.18);
+      border-radius: 22px;
+      padding: 34px;
+    }
+
+    .footer {
+      padding: 36px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #94a3b8;
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    max-width: 860px {
+      h1 { font-size: 40px; }
+      .hero p { font-size: 18px; }
+      .calculator { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
 </head>
-
 <body>
 
-<header class="container">
-    <h1>Тишина.Мест</h1>
-    <p>Платформа корпоративных оздоровительных путешествий</p>
-    <a href="#" class="btn">Оставить заявку</a>
-</header>
-
-<section class="section container">
-    <h2>О проекте</h2>
-    <p>
-        Мы помогаем компаниям организовывать оздоровительные поездки для сотрудников.
-        Платформа подбирает программы отдыха с учетом целей бизнеса и состояния команды.
-    </p>
-</section>
-
-<section class="section container">
-    <h2>Как это работает</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>1. Заявка</h3>
-            <p>Компания указывает цели, бюджет и формат отдыха</p>
-        </div>
-        <div class="card">
-            <h3>2. Подбор</h3>
-            <p>Система формирует персонализированные оздоровительные программы</p>
-        </div>
-        <div class="card">
-            <h3>3. Организация</h3>
-            <p>Мы бронируем и координируем поездку через партнёров</p>
-        </div>
-        <div class="card">
-            <h3>4. Результат</h3>
-            <p>Повышение вовлечённости и восстановление сотрудников</p>
-        </div>
+  <div class="navbar">
+    <div class="container nav-wrap">
+      <div class="logo">Тишина.Мест</div>
+      <div class="nav-links">
+        <a href="#about">О проекте</a>
+        <a href="#how">Как работает</a>
+        <a href="#formats">Форматы</a>
+        <a href="#calculator">Калькулятор</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Контакты</a>
+      </div>
     </div>
-</section>
+  </div>
 
-<section class="section container">
-    <h2>Преимущества</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Персонализация</h3>
-            <p>Подбор программ под сотрудников</p>
-        </div>
-        <div class="card">
-            <h3>Экономия времени</h3>
-            <p>Не нужно искать подрядчиков вручную</p>
-        </div>
-        <div class="card">
-            <h3>Готовые решения</h3>
-            <p>Полный цикл: от подбора до реализации</p>
-        </div>
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="eyebrow">Корпоративный оздоровительный туризм</div>
+      <h1>Оздоровительные путешествия для команд, которым нужен настоящий отдых</h1>
+      <p>
+        Тишина.Мест помогает компаниям подбирать и организовывать корпоративные поездки
+        для восстановления сотрудников, снижения выгорания и укрепления командной среды.
+      </p>
+      <div class="btn-group">
+        <a href="#contact" class="btn btn-primary">Оставить заявку</a>
+        <a href="#about" class="btn btn-secondary">Узнать подробнее</a>
+      </div>
     </div>
-</section>
+  </section>
 
-<section class="section container">
-    <h2>Кому подходит</h2>
-    <p>
-        Средний и крупный бизнес, HR-департаменты,
-        компании, заботящиеся о здоровье сотрудников и снижении выгорания.
-    </p>
-</section>
+  <section id="about" class="reveal">
+    <div class="container">
+      <h2 class="section-title">О проекте</h2>
+      <p class="section-subtitle">
+        Платформа для корпоративных клиентов, которая объединяет подбор, бронирование
+        и сопровождение оздоровительных путешествий. Мы работаем с HR-отделами и компаниями,
+        которым важно поддерживать сотрудников не формально, а системно.
+      </p>
 
-<section class="section container" style="text-align:center;">
-    <h2>Начните сейчас</h2>
-    <p>Оставьте заявку и получите подбор программы</p>
-    <a href="#" class="btn">Связаться</a>
-</section>
+      <div class="stats">
+        <div class="stat">
+          <strong>B2B</strong>
+          Работаем с компаниями
+        </div>
+        <div class="stat">
+          <strong>ИИ</strong>
+          Персонализированный подбор программ
+        </div>
+        <div class="stat">
+          <strong>Под ключ</strong>
+          От заявки до реализации
+        </div>
+        <div class="stat">
+          <strong>Аналитика</strong>
+          Понимание пользы для HR
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-    <p>© Тишина.Мест</p>
-</footer>
+  <section id="how" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Как это работает</h2>
+      <p class="section-subtitle">
+        Простой процесс для компании: минимум ручной координации, максимум удобства.
+      </p>
 
+      <div class="grid grid-4 steps">
+        <div class="card">
+          <span>1</span>
+          <h3>Заявка</h3>
+          <p class="muted">Компания указывает цель поездки, число сотрудников, бюджет и желаемый формат отдыха.</p>
+        </div>
+        <div class="card">
+          <span>2</span>
+          <h3>Анализ</h3>
+          <p class="muted">Платформа анализирует параметры запроса и предлагает релевантные оздоровительные решения.</p>
+        </div>
+        <div class="card">
+          <span>3</span>
+          <h3>Бронирование</h3>
+          <p class="muted">Выбирается программа, подтверждаются даты, размещение, питание и дополнительные активности.</p>
+        </div>
+        <div class="card">
+          <span>4</span>
+          <h3>Сопровождение</h3>
+          <p class="muted">После поездки компания получает обратную связь и итоговую аналитику по программе.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Преимущества для бизнеса</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Снижение выгорания</h3>
+          <p class="muted">Оздоровительные поездки помогают командам восстановиться и переключиться от рабочих перегрузок.</p>
+        </div>
+        <div class="card">
+          <h3>Усиление HR-бренда</h3>
+          <p class="muted">Забота о сотрудниках становится заметной частью корпоративной культуры и ценностного предложения работодателя.</p>
+        </div>
+        <div class="card">
+          <h3>Экономия времени HR</h3>
+          <p class="muted">Не нужно искать базы отдыха, согласовывать подрядчиков и вручную собирать программу поездки.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formats" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Форматы поездок</h2>
+      <p class="section-subtitle">
+        Мы можем собирать программы под разные цели компании и состояние команды.
+      </p>
+
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Антистресс-выезд</h3>
+          <p class="muted">Неспешный формат с природой, спа, банным комплексом, прогулками и мягким восстановлением.</p>
+        </div>
+        <div class="card">
+          <h3>Активное восстановление</h3>
+          <p class="muted">Программы с умеренной физической активностью, треккингом, водными и спортивными практиками.</p>
+        </div>
+        <div class="card">
+          <h3>Digital-detox weekend</h3>
+          <p class="muted">Поездки с акцентом на тишину, снижение информационной нагрузки и возвращение к балансу.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calculator" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Калькулятор примерного бюджета</h2>
+      <p class="section-subtitle">
+        Быстрый ориентир по стоимости корпоративной поездки.
+      </p>
+
+      <div class="calculator">
+        <div class="calculator-box">
+          <label for="employees">Количество сотрудников</label>
+          <input type="number" id="employees" value="20" min="1" />
+
+          <label for="days">Количество дней</label>
+          <select id="days">
+            <option value="1">1 день</option>
+            <option value="2" selected>2 дня</option>
+            <option value="3">3 дня</option>
+          </select>
+
+          <label for="level">Формат размещения</label>
+          <select id="level">
+            <option value="7000">Базовый</option>
+            <option value="12000" selected>Комфорт</option>
+            <option value="18000">Премиум</option>
+          </select>
+
+          <button class="btn btn-primary" onclick="calcBudget()">Рассчитать</button>
+        </div>
+
+        <div class="calculator-box">
+          <h3>Предварительная стоимость</h3>
+          <p class="muted">Расчёт ориентировочный и зависит от сезона, региона, трансфера и выбранной программы.</p>
+          <div class="result" id="budgetResult">≈ 480 000 ₽</div>
+          <p class="muted" id="budgetHint">Для 20 сотрудников / 2 дня / формат «Комфорт»</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="reveal">
+    <div class="container">
+      <h2 class="section-title">Частые вопросы</h2>
+
+      <div class="faq-item">
+        <button class="faq-question">С какими компаниями вы работаете?</button>
+        <div class="faq-answer">Мы ориентированы на малый, средний и крупный бизнес, а также на HR-команды и руководителей, отвечающих за благополучие сотрудников.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Можно ли собрать программу под конкретный бюджет?</button>
+        <div class="faq-answer">Да. Платформа подбирает решения с учетом бюджета, количества сотрудников, длительности поездки и задач компании.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Это только поездки по Самарской области?</button>
+        <div class="faq-answer">На старте проект может работать с локальными партнёрами, но модель легко масштабируется на другие регионы России.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Как компания оплачивает тур?</button>
+        <div class="faq-answer">После согласования программы оформляется заявка и производится разовое бронирование поездки через платформу.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="reveal">
+    <div class="container">
+      <div class="contact-box">
+        <h2 class="section-title">Оставить заявку</h2>
+        <p class="section-subtitle">
+          Расскажите о компании — мы подготовим подходящий формат оздоровительной поездки.
+        </p>
+
+        <form onsubmit="sendForm(event)">
+          <div class="grid grid-3">
+            <div>
+              <label>Название компании</label>
+              <input type="text" id="company" placeholder="Например, ООО Пример" required />
+            </div>
+            <div>
+              <label>Контактное лицо</label>
+              <input type="text" id="name" placeholder="Ваше имя" required />
+            </div>
+            <div>
+              <label>Телефон или email</label>
+              <input type="text" id="contactData" placeholder="+7 ... / email" required />
+            </div>
+          </div>
+
+          <label>Комментарий</label>
+          <textarea id="message" placeholder="Количество сотрудников, желаемые даты, формат поездки"></textarea>
+
+          <button class="btn btn-primary" type="submit">Отправить заявку</button>
+        </form>
+
+        <p class="muted" id="formStatus" style="margin-top:16px;"></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="container">
+      © Тишина.Мест — корпоративные оздоровительные путешествия
+    </div>
+  </div>
+
+  <script>
+    function calcBudget() {
+      const employees = parseInt(document.getElementById('employees').value) || 0;
+      const days = parseInt(document.getElementById('days').value) || 1;
+      const level = parseInt(document.getElementById('level').value) || 0;
+
+      const transfer = 25000;
+      const programFee = 35000;
+      const total = employees * days * level + transfer + programFee;
+
+      document.getElementById('budgetResult').textContent =
+        '≈ ' + total.toLocaleString('ru-RU') + ' ₽';
+
+      const levelText = document.getElementById('level').options[document.getElementById('level').selectedIndex].text;
+      document.getElementById('budgetHint').textContent =
+        `Для ${employees} сотрудников / ${days} дн. / формат «${levelText}»`;
+    }
+
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const isOpen = answer.style.display === 'block';
+
+        document.querySelectorAll('.faq-answer').forEach(item => item.style.display = 'none');
+        if (!isOpen) answer.style.display = 'block';
+      });
+    });
+
+    function sendForm(e) {
+      e.preventDefault();
+      const company = document.getElementById('company').value.trim();
+      const name = document.getElementById('name').value.trim();
+      const contact = document.getElementById('contactData').value.trim();
+
+      if (!company || !name || !contact) {
+        document.getElementById('formStatus').textContent = 'Пожалуйста, заполните обязательные поля.';
+        return;
+      }
+
+      document.getElementById('formStatus').textContent =
+        'Заявка принята. На рабочем сайте здесь будет подключена отправка в почту, Telegram или CRM.';
+      e.target.reset();
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('active');
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    calcBudget();
+  </script>
 </body>
 </html>
