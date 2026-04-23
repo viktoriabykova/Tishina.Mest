@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="logo.png">
   <title>Тишина.Мест — корпоративные оздоровительные путешествия</title>
   <meta name="description" content="Тишина.Мест — сервис корпоративных оздоровительных путешествий для компаний. Подбор, организация и сопровождение поездок для восстановления сотрудников." />
   <style>
@@ -63,12 +64,23 @@
     }
 
     .logo {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      color: var(--text);
-      white-space: nowrap;
-    }
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
 
     .nav-links {
       display: flex;
@@ -403,7 +415,10 @@
 
   <div class="navbar">
     <div class="container nav-wrap">
-      <div class="logo">Тишина.Мест</div>
+     <div class="logo">
+  <img src="logo.png" alt="Тишина.Мест" class="logo-icon">
+  <span>Тишина.Мест</span>
+</div>
       <div class="nav-links">
         <a href="#a
 
